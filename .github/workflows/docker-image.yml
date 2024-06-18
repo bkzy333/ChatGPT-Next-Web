@@ -1,0 +1,11 @@
+name: Docker Image CI
+on: push
+jobs:
+  docker-build:
+    name: docker构建
+    runs-on: ubuntu-latest
+    steps:
+    - name: 读取仓库内容
+    - uses: actions/checkout@v4
+    - name: 构建docker镜像
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
