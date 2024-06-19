@@ -7,8 +7,8 @@ const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
     Unauthorized: isApp
-      ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
-      : "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
+      ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。[点这里获得独立账号 KEY 使用](https://sp.zhendafang.top/buy/21)"
+      : "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。[点这里获得独立账号 KEY 使用](https://sp.zhendafang.top/buy/21)",
   },
   Auth: {
     Title: "需要密码",
@@ -377,7 +377,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
+    BotHello: "微信公众号：真大方 \n [真大方导航连接](https://link3.cc/zhendafang)，点击左下角[设置](/#/settings)按钮输入APIkey或[点击获取专属APIKey](https://sp.zhendafang.top/buy/21)后可以使用。",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
