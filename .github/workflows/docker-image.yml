@@ -1,17 +1,40 @@
 name: Docker Image CI
 
-on: push
+on:
+  workflow_dispatch
 
 jobs:
   docker-build:
-    name: docker构建
+    name: Docker 构建
     runs-on: ubuntu-latest
     steps:
     - name: 检出仓库代码
       uses: actions/checkout@v4
+
     - name: 设置 Docker 环境
       run: |
         echo "构建Docker镜像..."
         # 这里可以添加任何需要的设置步骤
+
     - name: 构建并标记 Docker 镜像
       run: docker build . --file Dockerfile --tag my-image-name:latest
+
+    - name: 保存 Docker 镜像为 .tar 文件
+      run: docker save -o my-image-name.tar my-image-name:latest
+
+    - name: 创建 artifacts 目录
+      run: mkdir -p ./artifacts
+
+    - name: 移动镜像文件到 artifacts 目录
+      run: mv my-image-name.tar ./artifacts/
+
+    - name: 上传 Docker 镜像工件
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-docker-image
+        path: ./artifacts/my-image-name.tar
+
+    # 如果不需要保留 artifacts 目录中的文件，可以添加以下步骤进行清理
+    - name: 清理 artifacts 目录
+      run: |
+        rm -rf ./artifacts/
