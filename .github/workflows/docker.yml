@@ -36,5 +36,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: bkzy333/dafang:latest
+          tags: bkzy333/dafang:1.0
             
